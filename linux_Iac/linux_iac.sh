@@ -3,9 +3,9 @@
 echo "Criando diretórios..."
 
 mkdir /publico
-mkdir /adm
-mkdir /ven
-mkdir /sec
+mkdir /adm  #administração
+mkdir /ven  #vendas
+mkdir /sec  #secretaria
 
 echo "Criando grupos de usuários..."
 
@@ -15,7 +15,9 @@ groupadd GRP_SEC
 
 echo "Criando usuários..."
 
-useradd carlos -m -s /bin/bash -p $(openss1 passwd -crypt Senha123) -G GRP_ADM
+ #adicionando usuários aos grupos,aplicando o bash padrão e atribuindo senhas
+ 
+useradd carlos -m -s /bin/bash -p $(openss1 passwd -crypt Senha123) -G GRP_ADM 
 useradd maria -m -s /bin/bash -p $(openss1 passwd -crypt Senha123) -G GRP_ADM
 useradd joao -m -s /bin/bash -p $(openss1 passwd -crypt Senha123) -G GRP_ADM
 
@@ -32,10 +34,10 @@ echo "Especificando permissões dos diretórios..."
 
 chown root:GRP_ADM /adm
 chown root:GRP_VEN /ven
-chown root:GRP_SEC /sec
-
-chmod 770 /adm
-chmod 770 /ven
+chown root:GRP_SEC /sec                         
+                                  # Permissões de root,grupo e demais usuários respectivamente
+chmod 770 /adm                    # "7": Permissão total sobre o diretório,
+chmod 770 /ven                    # "0": Nenhuma permissão
 chmod 770 /sec
 chmod 777 /publico
 
