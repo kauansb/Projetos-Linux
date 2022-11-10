@@ -2,7 +2,7 @@
 
 echo "Criando diretórios..."
 
-mkdir /publico
+mkdir /publico #público
 mkdir /adm  #administração
 mkdir /ven  #vendas
 mkdir /sec  #secretaria
@@ -36,7 +36,7 @@ chown root:GRP_ADM /adm
 chown root:GRP_VEN /ven
 chown root:GRP_SEC /sec                         
                                   # Permissões de root,grupo e demais usuários respectivamente
-chmod 770 /adm                    # "7": Permissão total sobre o diretório,
+chmod 770 /adm                    # "7": Permissão total sobre o diretório
 chmod 770 /ven                    # "0": Nenhuma permissão
 chmod 770 /sec
 chmod 777 /publico
